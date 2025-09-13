@@ -57,7 +57,7 @@ export const register = async (req, res) => {
   }
 };
 
-
+//===================LOGIN CONTROLLER===================//
 export const login = async (req, res) => {
     try {
         let { email, password } = req.body;
@@ -76,7 +76,7 @@ export const login = async (req, res) => {
         // Check if password matches
         const isPasswordCorrect = await bcrypt.compare(password, user.password);
         if (!isPasswordCorrect) {
-            return res.status(400).send({ message: "Invalid credentials" });
+            return res.status(400).send({ message: "Invalid Password credentials" });
         }
 
         // create token for the user
@@ -95,5 +95,23 @@ export const login = async (req, res) => {
     } catch(error) {
         console.error(error);
         res.status(500).send("Server error while logging in : ", error.message);
+    }
+}
+
+
+
+//++===================LOGOUT CONTROLLER===================//
+export const logout = async (req, res) => {
+    try {
+        res.clearCookie("token", {
+            httpOnly: true,
+            secure: false, // set to true if using https
+            sameSite: "strict",
+        });
+        res.status(200).send({ message: "User logged out successfully" });
+
+    } catch(error) {
+        console.error(error);
+        res.status(500).send("Server error while logging out : ", error.message);
     }
 }
