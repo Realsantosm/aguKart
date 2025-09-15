@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import google from "../assets/google.png";
 
 const Registration = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -18,21 +19,21 @@ const Registration = () => {
     specialChar: /[!@#$%^&*(),.?":{}|<>]/.test(password),
   };
 
-  const strengthCount = Object.values(criteria).filter(Boolean).length;
+  //   const strengthCount = Object.values(criteria).filter(Boolean).length;
 
-  let strengthLabel = "";
-  let strengthColor = "";
+  //   let strengthLabel = "";
+  //   let strengthColor = "";
 
-  if (strengthCount <= 2) {
-    strengthLabel = "Weak";
-    strengthColor = "bg-red-600 text-red-700";
-  } else if (strengthCount === 3 || strengthCount === 4) {
-    strengthLabel = "Medium";
-    strengthColor = "bg-yellow-300 text-yellow-800";
-  } else if (strengthCount === 5) {
-    strengthLabel = "Strong";
-    strengthColor = "bg-green-600 text-green-700";
-  }
+  //   if (strengthCount <= 2) {
+  //     strengthLabel = "Weak";
+  //     strengthColor = "bg-red-600 text-red-700";
+  //   } else if (strengthCount === 3 || strengthCount === 4) {
+  //     strengthLabel = "Medium";
+  //     strengthColor = "bg-yellow-300 text-yellow-800";
+  //   } else if (strengthCount === 5) {
+  //     strengthLabel = "Strong";
+  //     strengthColor = "bg-green-600 text-green-700";
+  //   }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-6 py-12">
@@ -72,7 +73,7 @@ const Registration = () => {
             <input
               type="email"
               id="email"
-              placeholder="you@example.com"
+              placeholder="john@email.com"
               className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600 transition text-gray-900"
               required
             />
@@ -119,8 +120,8 @@ const Registration = () => {
           </legend>
 
           {/* Password strength stepper */}
-          <div id="password-strength" className="mb-4">
-            <div className="flex space-x-3 mb-2" aria-hidden="true">
+           <div id="password-strength" className="mb-4">
+            {/* <div className="flex space-x-3 mb-2" aria-hidden="true">
               {[1, 2, 3].map((step) => (
                 <div
                   key={step}
@@ -131,11 +132,11 @@ const Registration = () => {
                   } transition-colors`}
                 />
               ))}
-            </div>
-            <p className={`text-sm font-semibold ${strengthColor}`}>
+            </div> */}
+            {/* <p className={`text-sm font-semibold ${strengthColor}`}>
               {strengthLabel}
-            </p>
-          </div>
+            </p> */}
+          </div> 
 
           {/* Password criteria remarks */}
           <div className="mb-6 space-y-1 text-sm font-medium">
@@ -220,6 +221,10 @@ const Registration = () => {
           >
             Register
           </button>
+          <div className="w-[90%] h-[50px] bg-[#42656cae] rounded-lg flex items-center justify-center gap-[10px] py-[20px] cursor-pointer">
+            <img src={google} alt="" className="w-[20px]" /> Registration with
+            Google
+          </div>
         </form>
 
         <div className="mt-6 text-center text-gray-600 text-sm">

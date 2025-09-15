@@ -1,13 +1,15 @@
 import React from "react";
 import { FiShoppingCart, FiUser, FiMenu } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  let navigate = useNavigate();
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0" onClick={() => navigate("/")}>
             <a href="/" className="text-2xl font-bold text-red-600">
               🍅AguKart
             </a>
