@@ -198,9 +198,15 @@ const Registration = () => {
               type="button"
               onClick={toggleConfirmPasswordVisibility}
               className="absolute top-10 right-3 text-gray-500 hover:text-red-600 transition focus:outline-none"
-              aria-label={showConfirmPassword ? "Hide password" : "Show password"}
+              aria-label={
+                showConfirmPassword ? "Hide password" : "Show password"
+              }
             >
-              {showConfirmPassword ? <FiEyeOff size={22} /> : <FiEye size={22} />}
+              {showConfirmPassword ? (
+                <FiEyeOff size={22} />
+              ) : (
+                <FiEye size={22} />
+              )}
             </button>
             <p className="mt-1 text-xs text-gray-500">
               Re-enter to confirm your password.
@@ -218,10 +224,7 @@ const Registration = () => {
 
         <div className="mt-6 text-center text-gray-600 text-sm">
           Already have an account?{" "}
-          <a
-            href="/login"
-            className="text-red-600 hover:underline font-medium"
-          >
+          <a href="/login" className="text-red-600 hover:underline font-medium">
             Login here
           </a>
         </div>
